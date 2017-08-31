@@ -26,7 +26,7 @@ std::string FBullCowGame::getValidGuess() {
 	FString guess = "";
 	EGuessStatus status = EGuessStatus::invalid;
 	do {
-		std::cout << "Try " << getCurrentTry() << ". ";
+		std::cout << "\nTry " << myCurrentTry << " out of " << myMaxTries << ". ";
 		std::cout << "Enter your guess: ";
 		std::getline(std::cin, guess);
 
@@ -44,7 +44,7 @@ std::string FBullCowGame::getValidGuess() {
 			std::cout << "You're guess is not all lower case. Try again using a word with all lower case letters." << std::endl;
 			break;
 		default:
-			std::cout << "You're guess is valid." << std::endl;
+			//std::cout << "You're guess is valid." << std::endl;
 			break;
 		}
 	} while (status != EGuessStatus::ok);

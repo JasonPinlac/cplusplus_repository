@@ -26,9 +26,15 @@ int main() {
 
 // function definitions
 void printIntro() {
-	std::cout << "Welcome to Bulls and Cows, a fun word game!\n";
+	std::cout << "          }   {        <___> " << std::endl;
+	std::cout << "          (o o)        (o o) " << std::endl;
+	std::cout << "   /-------\\ /          \\ /-------\\ " << std::endl;
+	std::cout << "  / |BULLS |O    AND     O| COWS | \\ " << std::endl;
+	std::cout << " *  |-,--- |              |------|  * " << std::endl;
+	std::cout << "    ^      ^              ^      ^ " << std::endl;
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
 	std::cout << "Can you try and guess the " << BCGame.getHiddenWordLength() << " letter isogram word I'm thinking of?\n";
-	std::cout << "You have " << BCGame.getMaxTries() << " tries.\n";
+	//std::cout << "You have " << BCGame.getMaxTries() << " tries.\n";
 	return;
 }
 
@@ -47,11 +53,11 @@ void playGame() {
 
 void printGameSummary() {
 	if (BCGame.isGameWon()) {
-		std::cout << "Congratulations, you won the game!" << std::endl;
+		std::cout << "\nCongratulations, you won the game!" << std::endl;
 	}
 	else
 	{
-		std::cout << "Bad luck! You've ran out of tries." << std::endl;
+		std::cout << "\nBad luck! You've ran out of tries." << std::endl;
 	}
 }
 
