@@ -12,7 +12,7 @@ struct FBullCowCount {
 	int32 bulls = 0;
 	int32 cows = 0;
 };
-//test
+
 // enum validity checklist
 enum class EGuessStatus {
 	ok, // 0
