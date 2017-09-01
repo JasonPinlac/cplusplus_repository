@@ -4,7 +4,6 @@ using FString = std::string;
 using int32 = int;
 
 // getters
-int32 FBullCowGame::getMaxTries() const { return myMaxTries; }
 int32 FBullCowGame::getCurrentTry() const { return myCurrentTry; }
 int32 FBullCowGame::getHiddenWordLength() const { return myhiddenWord.length(); }
 bool FBullCowGame::isGameWon() const { return bGameIsWon; }
@@ -16,10 +15,15 @@ FBullCowGame::FBullCowGame() {
 
 // methods	
 void FBullCowGame::reset() {
-	myMaxTries = 15;
-	myhiddenWord = "thing";
+	myhiddenWord = "planet";
+	myMaxTries = getMaxTries();
 	myCurrentTry = 1;
 	bGameIsWon = false;
+}
+
+int32 FBullCowGame::getMaxTries() const { 
+	std::map<int32, int32> wordLengthToMaxTries{ {3,4}, {4,7}, {5,10}, {6,16}, {7,20}, {8,25}, {9,30}, {10,40} };
+	return wordLengthToMaxTries[myhiddenWord.length()];
 }
 
 std::string FBullCowGame::getValidGuess() {
@@ -69,28 +73,23 @@ FBullCowCount FBullCowGame::submitValidGuess(const FString &guess) {
 			}
 		}
 	}
-	// check if bull count == length of hidden word. If true, set bGameIsWon bool to true
 	if (bullCowCount.bulls == myhiddenWord.length()) {
 		bGameIsWon = true;
 	}
 	return bullCowCount;
 }
 
-// helper methods/ check methods
+// helper methods
 EGuessStatus FBullCowGame::checkGuessValidity(const FString &guess) const {
-	// if the guess isnt an isogram, return an error 1
 	if (!isIsogramCheck(guess)) {
 		return EGuessStatus::not_isogram;
 	}
-	// if the guess length is wrong, return error 2
 	else if (!isWordLengthCheck(guess)) {
 		return EGuessStatus::wrong_length;
 	}
-	// if the guess isn't all lowercase, return error 3
 	else if (!isLowerCaseCheck(guess)) {
 		return EGuessStatus::not_all_lower_case;
 	}
-	// otherwise, return ok 0
 	else {
 		return EGuessStatus::ok;
 	}

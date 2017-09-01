@@ -13,15 +13,16 @@ struct FBullCowCount {
 	int32 cows = 0;
 };
 
-// enum validity checklist
+// enum guess validity checklist
 enum class EGuessStatus {
-	ok, // 0
-	not_isogram, // 1
-	wrong_length, // 2
-	not_all_lower_case, // 3
-	invalid //4
+	ok, 
+	not_isogram, 
+	wrong_length, 
+	not_all_lower_case, 
+	invalid 
 };
 
+/*The FBullCowGame class is responsible for handling the back end logic of the game.*/
 class FBullCowGame {
 public:
 	// constructor

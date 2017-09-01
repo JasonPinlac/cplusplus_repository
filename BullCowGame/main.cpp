@@ -34,7 +34,6 @@ void printIntro() {
 	std::cout << "    ^      ^              ^      ^ " << std::endl;
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
 	std::cout << "Can you try and guess the " << BCGame.getHiddenWordLength() << " letter isogram word I'm thinking of?\n";
-	//std::cout << "You have " << BCGame.getMaxTries() << " tries.\n";
 	return;
 }
 
@@ -57,7 +56,7 @@ void printGameSummary() {
 	}
 	else
 	{
-		std::cout << "\nBad luck! You've ran out of tries." << std::endl;
+		std::cout << "\nGame over! You've run out of tries." << std::endl;
 	}
 }
 
