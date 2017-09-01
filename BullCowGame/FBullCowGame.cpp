@@ -1,3 +1,4 @@
+#pragma once
 #include "FBullCowGame.h"
 
 using FString = std::string;

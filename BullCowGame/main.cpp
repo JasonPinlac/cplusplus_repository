@@ -1,5 +1,7 @@
+#pragma once
 #include "FBullCowGame.h"
 
+// to make syntax with Unreal familiar
 using FText = std::string;
 using int32 = int;
 
